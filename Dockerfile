@@ -3,7 +3,7 @@
 FROM fgrehm/ventriloquist-base
 MAINTAINER vartana@gmail.com
 
-RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add - && \
+RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | aptitude install debian-keyring debian-archive-keyring && apt-key add - && \
     echo "deb http://apt.postgresql.org/pub/repos/apt sid-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
     apt-get update && \
     apt-get install -y postgresql-9.2 postgresql-contrib-9.2 postgresql-plperl-9.2 p7zip-full && \
