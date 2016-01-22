@@ -12,6 +12,12 @@ RUN wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt
     rm -rf /tmp/* && \
     apt-get autoremove && \
     apt-get clean
+    
+RUN perl -MCPAN -e 'Math::Round::Var' && \
+    perl -MCPAN -e 'Date::Calc' && \
+    perl -MCPAN -e 'HTTP::Request::Common' && \
+    perl -MCPAN -e 'LWP::Simple' && \
+    perl -MCPAN -e 'String::Approx'
 
 ADD config /
 
